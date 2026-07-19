@@ -39,7 +39,7 @@ Each notebook opens with a documented Cell 1 (author, institution, context, envi
 
 Office Hours: Wednesdays, 8 am CT, via Engageli (link posted in Canvas > Modules).
 
-Class recordings are also shared on YouTube: handle @prof.trevizo.
+Class is also supplemented on YouTube: handle @prof.trevizo.
 
 ## Environment
 
