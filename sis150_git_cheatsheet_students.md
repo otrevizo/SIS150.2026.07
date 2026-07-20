@@ -74,40 +74,14 @@ git config --list
 
 ---
 
-## Step 4 — Personal Access Token (PAT) — Your Password Replacement
-
-GitHub no longer accepts your account password from the Terminal. Instead,
-you create a **Personal Access Token (PAT)** — a long, random code that acts
-as your password for git.
-
-1. Go to https://github.com/settings/tokens
-2. Click **Generate new token** → **Generate new token (classic)**
-3. Give it a name, e.g. `My Laptop`
-4. Set an expiration (90 days is fine for a course)
-5. Check the box for **repo** scope
-6. Click **Generate token** — this creates your PAT, the password you'll
-   use whenever you `git push` new code to GitHub (see Step 6).
-7. **Copy it immediately** — GitHub only shows it once. Paste it somewhere
-   safe (a notes app, a password manager) until you use it in Step 5.
-
-> Think of the PAT like a temporary password just for git. If you lose it,
-> generate a new one — it costs nothing.
-
-> **When it expires:** after 90 days, `git push` will suddenly fail with an
-> authentication error. This is normal — you don't need to reinstall
-> anything or redo Steps 1-3. Just repeat **Step 4** to generate a fresh
-> PAT, then push again; your computer will ask for the new one and
-> remember it going forward. See "When Something Goes Wrong" below.
-
----
-
-## Step 5 — Clone Your First Repo
+## Step 4 — Clone Your First Repo
 
 Open **Terminal** (Mac) or **Git Bash** (Windows) — same as Step 1 — and
 run the commands below there.
 
 "Cloning" downloads a copy of a repo from GitHub to your computer. Let's
-clone the actual SIS150 class repo as your first example:
+clone the actual SIS150 class repo as your first example. Cloning a public
+repo like this one needs no login or password at all — just the URL:
 
 ```bash
 # Pick (or create) a folder to keep your class repos in, e.g.:
@@ -134,11 +108,42 @@ computer. (For any *other* repo later, just swap in that repo's URL.)
 
 ---
 
+## Step 5 — Personal Access Token (PAT) — Your Password Replacement
+
+This step is needed for when you **push** new code from your own computer
+up to GitHub's cloud — not for cloning or pulling, which you just did in
+Step 4 with no login at all.
+
+GitHub no longer accepts your account password from the Terminal. Instead,
+you create a **Personal Access Token (PAT)** — a long, random code that acts
+as your password for git.
+
+1. Go to https://github.com/settings/tokens
+2. Click **Generate new token** → **Generate new token (classic)**
+3. Give it a name, e.g. `My Laptop`
+4. Set an expiration (90 days is fine for a course)
+5. Check the box for **repo** scope
+6. Click **Generate token** — this creates your PAT, the password you'll
+   use whenever you `git push` new code to GitHub (see Step 6).
+7. **Copy it immediately** — GitHub only shows it once. Paste it somewhere
+   safe (a notes app, a password manager) until you need it in Step 6.
+
+> Think of the PAT like a temporary password just for git. If you lose it,
+> generate a new one — it costs nothing.
+
+> **When it expires:** after 90 days, `git push` will suddenly fail with an
+> authentication error. This is normal — you don't need to reinstall
+> anything or redo Steps 1-4. Just repeat **Step 5** to generate a fresh
+> PAT, then push again; your computer will ask for the new one and
+> remember it going forward. See "When Something Goes Wrong" below.
+
+---
+
 ## Step 6 — The Daily Loop: The Only 3 Commands You Need Most Days
 
 You'll use this loop on a repo you own or collaborate on — where you have
 push access. (It does **not** apply to this class repo — see the note in
-Step 5.)
+Step 4.)
 
 Every time you finish some work and want to save it to GitHub:
 
@@ -156,7 +161,7 @@ git push
 
 The **first time** you push to a new repo, Terminal will ask for your
 **username** and **password** — for password, paste the **PAT** from
-Step 4, not your GitHub account password. After that, your computer
+Step 5, not your GitHub account password. After that, your computer
 remembers it and won't ask again.
 
 That's it. Repeat this every time you finish a chunk of work.
@@ -206,7 +211,7 @@ Two possible results:
   `sis150_module5_inheritance.ipynb | 120 +++++`. Those files now exist in
   your folder.
 
-Since this class repo is read-only for you (Step 5), `pull` is really all
+Since this class repo is read-only for you (Step 4), `pull` is really all
 you'll ever run here. Get in the habit of running it before each class —
 own/collaborative repos are where the pull-then-push loop (Step 6) applies.
 
@@ -255,7 +260,7 @@ git push
 ## When Something Goes Wrong
 
 **"Authentication failed" / "Invalid username or token" on `git push`**
-Your PAT expired or was typo'd. Generate a new one (Step 4) and push again —
+Your PAT expired or was typo'd. Generate a new one (Step 5) and push again —
 Terminal will prompt you for your username and the new PAT.
 
 **"fatal: not a git repository"**
