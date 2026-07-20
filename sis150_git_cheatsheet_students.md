@@ -33,10 +33,15 @@ knowledge assumed, no GitHub Desktop required. Works the same way on
 ### On Windows
 1. Download **Git for Windows**: https://git-scm.com/download/win
 2. Run the installer. Accept the default options.
-3. This installs **Git Bash** — open it from the Start menu.
+3. This installs **Git Bash**. To open it, either:
+   - Press the **Windows key**, type `Git Bash`, and press Enter — or
+   - Right-click any empty space inside a folder in File Explorer (or on
+     the Desktop) and choose **Git Bash Here** from the menu.
+
    Use **Git Bash**, not the regular Command Prompt (CMD) or PowerShell —
    Git Bash uses the same commands as Mac Terminal, so this guide works
-   for everyone without translating commands.
+   for everyone without translating commands. A black/dark window will
+   open with a `$` prompt — that's it, you're in.
 4. Type `git --version` and press Enter to confirm it installed.
 
 From here on, "Terminal" means **Terminal** (Mac) or **Git Bash** (Windows) —
