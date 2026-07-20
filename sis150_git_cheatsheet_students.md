@@ -48,8 +48,6 @@ the commands are identical on both.
 
 1. Go to https://github.com and sign up (it's free).
 2. Remember your **username** — you'll need it below.
-3. If your instructor gave you an invite link to a class organization or
-   repo, accept it now while logged in.
 
 ---
 
@@ -82,18 +80,29 @@ as your password for git.
 3. Give it a name, e.g. `My Laptop`
 4. Set an expiration (90 days is fine for a course)
 5. Check the box for **repo** scope
-6. Click **Generate token**
+6. Click **Generate token** — this creates your PAT, the password you'll
+   use whenever you `git push` new code to GitHub (see Step 6).
 7. **Copy it immediately** — GitHub only shows it once. Paste it somewhere
    safe (a notes app, a password manager) until you use it in Step 5.
 
 > Think of the PAT like a temporary password just for git. If you lose it,
 > generate a new one — it costs nothing.
 
+> **When it expires:** after 90 days, `git push` will suddenly fail with an
+> authentication error. This is normal — you don't need to reinstall
+> anything or redo Steps 1-3. Just repeat **Step 4** to generate a fresh
+> PAT, then push again; your computer will ask for the new one and
+> remember it going forward. See "When Something Goes Wrong" below.
+
 ---
 
 ## Step 5 — Clone Your First Repo
 
-"Cloning" downloads a copy of a repo from GitHub to your computer.
+Open **Terminal** (Mac) or **Git Bash** (Windows) — same as Step 1 — and
+run the commands below there.
+
+"Cloning" downloads a copy of a repo from GitHub to your computer. Let's
+clone the actual SIS150 class repo as your first example:
 
 ```bash
 # Pick (or create) a folder to keep your class repos in, e.g.:
@@ -101,21 +110,30 @@ cd ~
 mkdir GitHub
 cd GitHub
 
-# Clone the repo (replace with your actual repo URL)
-git clone https://github.com/username/repo-name.git
+# Clone the SIS150 class repo
+git clone https://github.com/otrevizo/SIS150.2026.07.git
 
 # Move into the repo you just downloaded
-cd repo-name
+cd SIS150.2026.07
 ```
 
-The first time you push (Step 6), Terminal will ask for your **username**
-and **password** — for password, paste the **PAT** from Step 4, not your
-GitHub account password. After that, your computer remembers it and won't
-ask again.
+You now have a local copy of everything in the class repo — the same
+notebooks and materials your instructor shares, sitting right on your own
+computer. (For any *other* repo later, just swap in that repo's URL.)
+
+> **Note on this class repo:** it's a one-way street — from the instructor
+> to you. You can clone and pull it to get the latest materials, but you
+> cannot push to it (you don't have write access, and you don't need it).
+> Step 6 below still matters — you'll use `push` on repos you create
+> yourself or collaborate on, just not this one.
 
 ---
 
 ## Step 6 — The Daily Loop: The Only 3 Commands You Need Most Days
+
+You'll use this loop on a repo you own or collaborate on — where you have
+push access. (It does **not** apply to this class repo — see the note in
+Step 5.)
 
 Every time you finish some work and want to save it to GitHub:
 
@@ -130,6 +148,11 @@ git commit -m "Add loop that counts to 10"
 # 3. Push — upload your commit to GitHub
 git push
 ```
+
+The **first time** you push to a new repo, Terminal will ask for your
+**username** and **password** — for password, paste the **PAT** from
+Step 4, not your GitHub account password. After that, your computer
+remembers it and won't ask again.
 
 That's it. Repeat this every time you finish a chunk of work.
 
@@ -159,16 +182,28 @@ until the commands feel automatic.
 
 ---
 
-## Step 8 — Getting Updates (Pull)
+## Step 8 — Checking for New Material (Pull)
 
-If your instructor updates the class repo, or you work from more than one
-computer, download the latest changes before you start working:
+`git pull` is also how you check whether anything changed. When your
+instructor posts a new notebook to the class repo, your local clone
+doesn't update itself — you have to ask for it:
 
 ```bash
+cd ~/GitHub/SIS150.2026.07
 git pull
 ```
 
-Get in the habit: **pull before you start, push when you finish.**
+Two possible results:
+
+- **Nothing new:** `Already up to date.` — your local copy already matches
+  what's on GitHub.
+- **Something new:** git lists the file(s) it just downloaded, e.g.
+  `sis150_module5_inheritance.ipynb | 120 +++++`. Those files now exist in
+  your folder.
+
+Since this class repo is read-only for you (Step 5), `pull` is really all
+you'll ever run here. Get in the habit of running it before each class —
+own/collaborative repos are where the pull-then-push loop (Step 6) applies.
 
 ---
 
