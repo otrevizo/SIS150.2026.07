@@ -111,6 +111,43 @@ Colab, just talking to Python on your own machine instead of Google's.
 
 ---
 
+## Your Daily Routine (Every Time You Come Back)
+
+Steps 1 and 2 above are **one-time setup**. From now on, every time you
+sit down to work, it's just this:
+
+```bash
+cd path/to/your/project     # go to your project folder
+source venv/bin/activate    # Mac (Windows Git Bash: source venv/Scripts/activate)
+jupyter lab                 # start it up
+```
+
+**What actually happens when you run `jupyter lab`:** it starts a small
+program (a "server") running quietly in that Terminal window, then opens
+a tab in your regular web browser pointing at something like
+`http://localhost:8888/lab?token=...`. That odd-looking address just
+means "the Jupyter server running on *this* computer" — `localhost`
+always means "me, right here," not the internet. **The browser is just
+a window into it, not the thing actually running your code** — the real
+work happens in the Terminal, in the background.
+
+A few things that trip people up the first time:
+
+- **Leave that Terminal window open** while you work. It looks like
+  nothing is happening in it, but closing it shuts the server down and
+  your notebook disconnects.
+- **If you accidentally close the browser tab** (not the Terminal),
+  nothing is lost — just look at the Terminal window, find that
+  `http://localhost:8888/...` address it printed, and open it in a new
+  browser tab to reconnect.
+- **When you're done for the day:** close the browser tab, click back
+  into the Terminal, and press `Ctrl + C` (you may need to confirm) to
+  stop the server. Then `deactivate` to exit the `venv`.
+- **Next time:** you're not starting over — just repeat the three
+  commands above.
+
+---
+
 ## The "babysitting" part — installing libraries
 
 Colab comes with most common libraries already installed. Running
